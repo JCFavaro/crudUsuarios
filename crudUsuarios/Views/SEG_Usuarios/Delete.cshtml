@@ -1,0 +1,47 @@
+﻿@model crudUsuarios.Models.SEG_Usuarios
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Eliminar</h1>
+<div>
+    <h4>SEG_Usuarios</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaAltaModificacion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaAltaModificacion)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" id="theForm">
+        <input type="hidden" asp-for="Id" />
+        <input type="button" value="Delete" class="btn btn-danger" onclick="confirmar()" /> |
+        <a asp-action="Index">Volver a la lista</a>
+    </form>
+</div>
+
+<script>
+    function confirmar() {
+        if (confirm("Se va a proceder a eliminar el usuario seleccionado.¿Esta seguro que desea continuar ?")) {
+            document.getElementById('theForm').submit();
+        } 
+    }
+</script>
+    
